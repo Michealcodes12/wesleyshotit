@@ -11,11 +11,11 @@ import { Footer } from "./component/Footer";
 import { supabase } from "./superbase/config";
 import { AboutView } from "./component/views/About";
 
+// --- Type Definitions ---
+
 // --- Main Application ---
 export default function App() {
-  const [activeTab, setActiveTab] = useState<
-    "home" | "portfolio" | "services" | "booking" | "contact"| "about"
-  >("home");
+  const [activeTab, setActiveTab] = useState("home");
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   // Initialize client
   const [user, setUser] = useState<any>(null);
@@ -55,7 +55,6 @@ export default function App() {
     return () => subscription.unsubscribe();
   }, []);
 
-  
 
   // Navigation Logic
   const navigateTo = (tab: typeof activeTab) => {
@@ -139,7 +138,7 @@ export default function App() {
         {activeTab === "home" && <HomeView navigateTo={navigateTo} />}
         {activeTab === "portfolio" && <PortfolioView />}
         {activeTab === "services" && <ServicesView navigateTo={navigateTo} />}
-        {activeTab === "booking" && <BookingView user={user} />}
+        {activeTab === "booking" && <BookingView navigateTo={navigateTo} user={user} />}
         {activeTab === "contact" && <ContactView />}
         {activeTab === "about" && <AboutView />}
       </main>

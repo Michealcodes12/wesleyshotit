@@ -17,7 +17,7 @@ import {
 } from "lucide-react";
 import { useState } from "react";
 
-export function BookingView({ user }: { user: any }) {
+export function BookingView({ user, navigateTo }: { user: any, navigateTo: (tab: string) => void }) {
   const [step, setStep] = useState(1);
   const [booked, setisbooked] = useState(false);
   const [isloading, setisloading] = useState(true);
@@ -33,12 +33,6 @@ export function BookingView({ user }: { user: any }) {
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [success, setSuccess] = useState(false);
-  // const [successData, setSuccessData] = useState<{
-  //   clientEmailContent: EmailPreview;
-  //   ownerEmailContent: EmailPreview;
-  //   calendarUrl: string;
-  // } | null>(null);
-
   const handleBlur = async (e: React.FocusEvent<HTMLInputElement>) => {
     setisloading(true);
     const selectedDate = e.target.value;
@@ -81,17 +75,17 @@ export function BookingView({ user }: { user: any }) {
         .insert([bookingData])
         .select(); // Returns the created row
       setSuccess(true);
-      console.log("Booking successful:", data);
       if(data){
-        const sendemail = await fetch("/api/send", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({name: formData.clientName, email: formData.clientEmail}),
-        })
-        const res = await sendemail.json()
-        console.log("Email sent response:", res);}
+        // const sendemail = await fetch("/api/send", {
+        //   method: "POST",
+        //   headers: {
+        //     "Content-Type": "application/json",
+        //   },
+        //   body: JSON.stringify({name: formData.clientName, email: formData.clientEmail}),
+        // })
+        // const res = await sendemail.json()
+        // console.log("Email sent response:", res);}
+      }
     } catch (error) {
       console.log("Booking failed", error);
     } finally {
@@ -128,8 +122,8 @@ export function BookingView({ user }: { user: any }) {
             <ArrowBigDownIcon className="w-5 h-5" /> Make Payment
           </a>
           <div className="mt-8">
-            <Button variant="outline" onClick={() => window.location.reload()}>
-              Book Another
+            <Button variant="outline" onClick={() => navigateTo("portfolio")}>
+              View Portfolio
             </Button>
           </div>
         </div>
