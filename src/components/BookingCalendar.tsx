@@ -50,7 +50,7 @@ export function BookingCalendar({ selected, onSelect }: BookingCalendarProps) {
   }, []);
 
   return (
-    <div className="w-full p-6 bg-secondary/30 border border-border/50 flex flex-col items-center">
+    <div className="w-full p-6 bg-secondary/30 border border-border/50 flex flex-col  items-center">
       <Calendar
         mode="single"
         selected={selected}

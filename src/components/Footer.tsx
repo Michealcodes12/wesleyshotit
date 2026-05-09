@@ -17,9 +17,9 @@ export function Footer() {
             Contact
           </h3>
           <ul className="space-y-4 text-sm font-light">
-            <li>wesleyshotit@gmail.com</li>
-            <li>+234 800 000 0000</li>
-            <li>Benin City, Nigeria</li>
+            <li>Wesleyshotproduction1@gmail.com</li>
+            <li>+234 </li>
+            <li>Benin City, Edo State, Nigeria</li>
           </ul>
         </div>
 

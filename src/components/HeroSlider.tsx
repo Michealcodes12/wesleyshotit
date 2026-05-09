@@ -29,33 +29,35 @@ export function HeroSlider() {
       <AnimatePresence mode="wait">
         <motion.div
           key={index}
-          initial={{ opacity: 0, scale: 1.1 }}
-          animate={{ opacity: 1, scale: 1 }}
-          exit={{ opacity: 0, scale: 1.05 }}
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          exit={{ opacity: 0 }}
           transition={{ duration: 2, ease: "easeInOut" }}
           className="absolute inset-0"
         >
-          <Image
-            src={images[index]}
-            alt="Wedding Photography"
-            fill
-            priority={index === 0}
-            loading="eager"
-            className="object-cover"
-            placeholder="blur"
-            blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+ZNPQAIXwM4ghu36wAAAABJRU5ErkJggg=="
-          />
-          {/* Ken Burns effect simulation through motion scale */}
+          {/* Ken Burns: subtle scale from 1.0 → 1.05 so nothing is clipped */}
           <motion.div
-            animate={{ scale: 1.1 }}
+            className="absolute inset-0"
+            initial={{ scale: 1 }}
+            animate={{ scale: 1.05 }}
             transition={{
               duration: 8,
               ease: "linear",
               repeat: Infinity,
               repeatType: "reverse",
             }}
-            className="absolute inset-0"
-          />
+          >
+            <Image
+              src={images[index]}
+              alt="Wedding Photography"
+              fill
+              priority={index === 0}
+              loading="eager"
+              className="object-cover"
+              placeholder="blur"
+              blurDataURL="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mN8/+ZNPQAIXwM4ghu36wAAAABJRU5ErkJggg=="
+            />
+          </motion.div>
         </motion.div>
       </AnimatePresence>
 

@@ -50,7 +50,7 @@ export async function POST(request: Request) {
     // 2. Send Notification Email to Photographer (Your Client)
     const { data, error } = await resend.emails.send({
       from: "Wesleyshotit <hello@resend.dev>",
-      to: ["bookings@wesleyshotit.com"], // <-- REPLACE THIS WITH YOUR CLIENT'S EMAIL
+      to: [email], // <-- REPLACE THIS WITH YOUR CLIENT'S EMAIL
       subject: `New Booking Request: ${partner_1_name} & ${partner_2_name}`,
       html: `
         <div style="font-family: sans-serif; max-width: 600px; margin: auto; padding: 20px; color: #212922;">
