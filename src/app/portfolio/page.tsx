@@ -13,12 +13,12 @@ const categories = [
   {
     id: "traditional",
     title: "Traditional",
-    image: "/images/weddings/wedding3.webp",
+    image: "/images/weddings/IMG_3029.webp",
   },
   {
     id: "engagement",
     title: "Engagements",
-    image: "/images/weddings/IMG_3522.webp",
+    image: "/images/weddings/IMG_3027.webp",
   },
 ];
 

@@ -20,7 +20,7 @@ export function Navigation() {
   const navLinks = [
     { name: "Portfolio", href: "/portfolio" },
     { name: "Highlights", href: "/highlight" },
-    { name: "Investment", href: "/pricing" },
+    { name: "Pricing", href: "/pricing" },
     { name: "About", href: "/about" },
     { name: "Book Now", href: "/booking", isButton: true },
   ];
@@ -66,12 +66,12 @@ export function Navigation() {
             <Image
               src="/logo.PNG"
               alt="Wesleyshotit Logo"
-              width={48}
-              height={48}
-              style={{ height: "auto" }}
+              width={30}
+              height={30}
+              style={{ height: "auto", width: "auto" }}
               className="object-contain"
             />
-            <span className="hidden md:block">Wesleyshotit</span>
+            <span className="hidden md:block">wesleyshot_prod.</span>
           </Link>
 
           <div className="hidden md:flex items-center gap-10 text-[10px] tracking-[0.3em] uppercase font-medium text-white/70">

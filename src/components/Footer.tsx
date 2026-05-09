@@ -18,7 +18,7 @@ export function Footer() {
           </h3>
           <ul className="space-y-4 text-sm font-light">
             <li>Wesleyshotproduction1@gmail.com</li>
-            <li>+234 </li>
+            <li>+234 812 458 829</li>
             <li>Benin City, Edo State, Nigeria</li>
           </ul>
         </div>

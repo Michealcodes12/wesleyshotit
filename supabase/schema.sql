@@ -43,3 +43,7 @@ CREATE POLICY "Allow anon insert for subscribers" ON subscribers FOR INSERT WITH
 -- Allow anonymous reads for unavailable dates (to show on calendar)
 CREATE POLICY "Allow anon read for unavailable_dates" ON unavailable_dates FOR SELECT USING (true);
 CREATE POLICY "Allow anon read for bookings (dates only)" ON bookings FOR SELECT USING (true);
+
+-- Allow anon to update booking status (admin dashboard uses no Supabase auth)
+-- Without this policy, UPDATE calls silently succeed with 0 rows affected (no error thrown)
+CREATE POLICY "Allow anon update for bookings" ON bookings FOR UPDATE USING (true) WITH CHECK (true);
